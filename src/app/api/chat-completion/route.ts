@@ -29,7 +29,7 @@ console.log(folder_path)
   const { messages } = body;
 
   const vectorStore = await HNSWLib.load(
-    "public/hnswlib",
+    `${folder_path}/hnswlib`,
     new OpenAIEmbeddings({ openAIApiKey: OPENAI_API_KEY }),
   );
 
