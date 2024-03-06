@@ -6,6 +6,7 @@ import { HNSWLib } from "langchain/vectorstores/hnswlib";
 import { createRetrieverTool } from "langchain/tools/retriever";
 import { AgentExecutor, createOpenAIToolsAgent } from "langchain/agents";
 import { ChatOpenAI } from "@langchain/openai";
+// @ts-ignore  
 import {
     ChatPromptTemplate,
     MessagesPlaceholder,
