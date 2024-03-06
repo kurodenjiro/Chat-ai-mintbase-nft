@@ -6,6 +6,8 @@ import { HNSWLib } from "langchain/vectorstores/hnswlib";
 import { createRetrieverTool } from "langchain/tools/retriever";
 import { AgentExecutor, createOpenAIToolsAgent } from "langchain/agents";
 import { ChatOpenAI } from "@langchain/openai";
+import path from "path";
+
 // @ts-ignore  
 import {
     ChatPromptTemplate,
@@ -13,16 +15,19 @@ import {
 } from "@langchain/core/prompts";
 
 
-
+const isProduction = process.env.NODE_ENV === "production";
 export async function POST(req: Request) {
+    const folder_path = path.join(process.cwd(), isProduction ? "src" : "");
+    console.log(folder_path)
   const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
 
   const llm = new ChatOpenAI({ openAIApiKey: OPENAI_API_KEY, temperature: 0 });
   const body = await req.json();
   const { messages } = body;
+  console.log(__dirname);
   const vectorStore = await HNSWLib.load(
-    "hnswlib",
+    "/hnswlib",
     new OpenAIEmbeddings({ openAIApiKey: OPENAI_API_KEY }),
   );
 
