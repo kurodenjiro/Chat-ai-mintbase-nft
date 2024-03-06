@@ -18,7 +18,7 @@ import {
 
 const isProduction = process.env.NODE_ENV === "production";
 export async function POST(req: Request) {
-    const folder_path = path.join(process.cwd(), isProduction ? "src" : "");
+    const folder_path = path.join(process.cwd(),"public");
 console.log(folder_path)
 
   const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
