@@ -12,7 +12,6 @@ const nextConfig = {
       path: require.resolve("path-browserify"),
   };
     config.plugins.push(
-
       new webpack.NormalModuleReplacementPlugin(
         /^node:/,
         (resource) => {
