@@ -2,7 +2,7 @@ import { OpenAIEmbeddings } from 'langchain/embeddings/openai'
 import { HNSWLib }  from 'langchain/vectorstores/hnswlib'
 import { MintBaseLoader } from './blockchain/mbapi.mjs'
 
-const OPENAI_API_KEY = "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";
+const OPENAI_API_KEY = "";
 
 const blockchainType = {
     NEAR_MAINNET: "mainnet",
