@@ -62,6 +62,9 @@ dependencies:
   path-browserify:
     specifier: ^1.0.1
     version: 1.0.1
+  prompts:
+    specifier: link:@langchain/core/prompts
+    version: link:@langchain/core/prompts
   react:
     specifier: ^18.2.0
     version: 18.2.0
