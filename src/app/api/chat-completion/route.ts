@@ -20,13 +20,7 @@ const isProduction = process.env.NODE_ENV === "production";
 export async function POST(req: Request) {
     const folder_path = path.join(process.cwd(), isProduction ? "src" : "");
 console.log(folder_path)
-const fs = require('fs');
 
-fs.readdir(folder_path, (err:any, files:any) => {
-  files.forEach((file:any) => {
-    console.log(file);
-  });
-});
   const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
 
@@ -35,7 +29,7 @@ fs.readdir(folder_path, (err:any, files:any) => {
   const { messages } = body;
 
   const vectorStore = await HNSWLib.load(
-    "/hnswlib",
+    "public/hnswlib",
     new OpenAIEmbeddings({ openAIApiKey: OPENAI_API_KEY }),
   );
 
