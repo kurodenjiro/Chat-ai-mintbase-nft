@@ -17,17 +17,17 @@ import {
 
 const isProduction = process.env.NODE_ENV === "production";
 export async function POST(req: Request) {
-    const folder_path = path.join(process.cwd(), isProduction ? "src" : "");
-    console.log(folder_path)
+    const dir = path.resolve("../admin", "public", dirRelativeToPublicFolder); // 
+   // console.log(__dirname);
   const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
 
   const llm = new ChatOpenAI({ openAIApiKey: OPENAI_API_KEY, temperature: 0 });
   const body = await req.json();
   const { messages } = body;
-  console.log(__dirname);
+  
   const vectorStore = await HNSWLib.load(
-    "/hnswlib",
+    "/public/hnswlib",
     new OpenAIEmbeddings({ openAIApiKey: OPENAI_API_KEY }),
   );
 
