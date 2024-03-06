@@ -17,8 +17,8 @@ import {
 
 const isProduction = process.env.NODE_ENV === "production";
 export async function POST(req: Request) {
-    const dir = path.resolve("../admin", "public", dirRelativeToPublicFolder); // 
-   // console.log(__dirname);
+ 
+ console.log("__dirname",__dirname);
   const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
 
