@@ -22,7 +22,7 @@ export async function POST(req: Request) {
   const body = await req.json();
   const { messages } = body;
   const vectorStore = await HNSWLib.load(
-    "./hnswlib",
+    "hnswlib",
     new OpenAIEmbeddings({ openAIApiKey: OPENAI_API_KEY }),
   );
 
